@@ -17,12 +17,20 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   int selectedIndex = 0;
-  final List<Widget> screens = [
-    HomeScreen(),
+
+  void changeTab(int index) {
+    setState(() {
+      selectedIndex = index;
+    });
+  }
+
+  late final List<Widget> screens = [
+    HomeScreen(onNavigate: changeTab),
     ProjectsScreen(),
     ContactScreen(),
     AboutScreen(),
   ];
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -38,17 +46,29 @@ class _MyAppState extends State<MyApp> {
             });
           },
           items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home', backgroundColor: Color.fromRGBO(24, 53, 55, 1)),
-            BottomNavigationBarItem(icon: Icon(Icons.work), label: 'Projekty', backgroundColor: Color.fromRGBO(24, 53, 55, 1)),
-            BottomNavigationBarItem(icon: Icon(Icons.mail), label: 'Kontakt', backgroundColor: Color.fromRGBO(24, 53, 55, 1)),
-            BottomNavigationBarItem(icon: Icon(Icons.person), label: 'O mnie', backgroundColor: Color.fromRGBO(24, 53, 55, 1)),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+              backgroundColor: Color.fromRGBO(24, 53, 55, 1),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.work),
+              label: 'Projekty',
+              backgroundColor: Color.fromRGBO(24, 53, 55, 1),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.mail),
+              label: 'Kontakt',
+              backgroundColor: Color.fromRGBO(24, 53, 55, 1),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: 'O mnie',
+              backgroundColor: Color.fromRGBO(24, 53, 55, 1),
+            ),
           ],
         ),
       ),
     );
   }
 }
-
-
-
-

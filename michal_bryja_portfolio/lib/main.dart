@@ -35,7 +35,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.lightGreenAccent,
+        backgroundColor: const Color.fromARGB(255, 211, 211, 211),
         appBar: AppBar(),
         body: screens[selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
